@@ -27,11 +27,14 @@ export default function Appbar() {
         </Toolbar>
     </AppBar>
     <Switch>
-        <Route path="/lottery" default>
+        <Route path="/lottery" exact>
             <Lottery />
         </Route>
         <Route path="/cardGenerator" exact>
             <CardGenerator />
+        </Route>
+        <Route path="/" default>
+            <Lottery />
         </Route>
 
     </Switch>

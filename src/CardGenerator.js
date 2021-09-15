@@ -26,7 +26,7 @@ export default function CardGenerator() {
         let error = false
         if(  rows * columns > localData.length){
             error = true
-            messages.push("Rows * Columns canot be more than "+ localData.length)
+            messages.push("Rows x Columns canot be more than "+ localData.length)
         }
         if( rows > 4){
             error = true
@@ -86,7 +86,7 @@ export default function CardGenerator() {
                     table: {
                     // headers are automatically repeated if the table spans over multiple pages
                     // you can declare how many rows should be treated as headers
-                    headerRows: 1,
+                    headerRows: 0,
                     widths: [ '*', '*', '*', '*' ],
             
                     body: body
