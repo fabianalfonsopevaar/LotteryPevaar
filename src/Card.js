@@ -5,8 +5,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { green } from '@material-ui/core/colors';
 
-
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function MediaCard(props) {
   const useStyles = makeStyles({
@@ -21,14 +23,15 @@ export default function MediaCard(props) {
 
   return (
     <Card className={classes.root} style={{marginTop: 20}}>
-      <CardActionArea>
+      <CardActionArea onClick={() => props.changeState ? props.changeState(props.id) : {} }>
         <CardMedia
           className={classes.media}
           image={props.image}
         />
         {props.title && <CardContent>
           <Typography gutterBottom >
-            {props.title}
+            {props.title} 
+            {props.showIcon && (props.selected ? <CheckIcon style={{ color: green[500] }} /> : <CloseIcon  color="action"/>)}
           </Typography>
         </CardContent>}
       </CardActionArea>

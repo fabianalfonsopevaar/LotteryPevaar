@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect} from 'react'
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import io from 'socket.io-client';
 
 import Card from './Card'
 
@@ -10,25 +12,27 @@ import data from './imagesData'
 //https://padondenosvamos.com/lugares-turisticos-de-colombia/
 //https://viajerocasual.com/comidas-tipicas-de-colombia/
 
-
-
 export default function Lottery() {
+
     let initialState = data
     const [items, setItems] = useState([...initialState])
 
     const [itemsSelected, setItemsSelected] = useState([
 
     ])
+    const [name, setName] = useState("")
+
+    const [socket, setSocket] = useState(null);
 
     const drawCard = () => {
         if(items.length > 0){
-            setItemsSelected([items.shift(), ...itemsSelected ])
+            const newItems = [items.shift(), ...itemsSelected ]
+            socket.emit("draw_card", {itemsSelected: newItems, items: items, name: name})
         }
     }
 
     const resetGame = () => {
-        setItems([...initialState])
-        setItemsSelected([])
+        socket.emit("draw_card", {itemsSelected: [], items: [...initialState], name: name})
     }
 
     const shuffleItems = () => {
@@ -38,6 +42,18 @@ export default function Lottery() {
         }
         setItems([...items])
     }
+    
+    useEffect(() => {
+        const newSocket = io(process.env.REACT_APP_SOCKET);
+        newSocket.on("set_itemsSelected", data => {
+            setItemsSelected(data)
+        })
+        newSocket.on("set_items", data => {
+            setItems(data)
+        })
+        setSocket(newSocket);
+        return () => newSocket.close();
+    }, [setSocket])
 
     return (
         <div>
@@ -54,6 +70,7 @@ export default function Lottery() {
                     </Grid>
                 </Grid>
                 <Grid item xs={2}>
+                    <TextField id="name" label="Name" value={name}  onChange={(e) => setName(e.target.value ?e.target.value  : "")} />
                     <Button onClick={() => drawCard()} >Draw a card</Button>
                     <Button onClick={() => resetGame()} >Reset game</Button>
                     <Button onClick={() => shuffleItems()} >Shuffle cards</Button>

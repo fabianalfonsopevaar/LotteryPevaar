@@ -27,7 +27,7 @@ let data = [
     {id: 25, name: "Guacamayas", photo: "images/25-Guacamaya.jpg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638419/Pevaar%20Lottery/25-Guacamaya_ie75bs.jpg"},
     {id: 26, name: "Oso perezoso", photo: "images/26-osoperezoso.jpg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638420/Pevaar%20Lottery/26-osoperezoso_kjhgwm.jpg"},
     {id: 27, name: "Mariana Pajón", photo: "images/27-marianapajon.jpg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638419/Pevaar%20Lottery/27-marianapajon_yjiu8j.jpg"},
-    {id: 28, name: "Oscar Figura", photo: "images/28-oscarfigueroa.jpeg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638419/Pevaar%20Lottery/28-oscarfigueroa_d2a6mc.jpg"},
+    {id: 28, name: "Oscar Figueroa", photo: "images/28-oscarfigueroa.jpeg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638419/Pevaar%20Lottery/28-oscarfigueroa_d2a6mc.jpg"},
     {id: 29, name: "Caterine Ibarguen", photo: "images/29-ibarguen.jpg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638420/Pevaar%20Lottery/29-ibarguen_jfth0m.jpg"},
     {id: 30, name: "Yuri Alvear", photo: "images/30-yurialvear.jpeg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631638420/Pevaar%20Lottery/30-yurialvear_uczfu7.jpg"},
     {id: 31, name: "Parque Jaime Duque", photo: "images/31-jaimeduque.jpg", background: backgroundImage, url: "https://res.cloudinary.com/dgf1o1moy/image/upload/v1631647389/Pevaar%20Lottery/31-jaimeduque_ulntr5.jpg"},
