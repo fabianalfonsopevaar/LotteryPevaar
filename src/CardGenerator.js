@@ -139,8 +139,15 @@ export default function CardGenerator() {
         }
 
         let newArray = [...localItems]
-        newArray[indices[0]][indices[1]] = {...newArray[indices[0]][indices[1]] , selected: !newArray[indices[0]][indices[1]].selected}
-        setLocalItems(newArray)
+
+        if(itemsSelected.find(e => e.id === newArray[indices[0]][indices[1]].id)){
+            newArray[indices[0]][indices[1]] = {...newArray[indices[0]][indices[1]] , selected: !newArray[indices[0]][indices[1]].selected}
+            setLocalItems(newArray)
+        }else{
+            alert("This card is not found in the drawn cards")
+        }
+
+        
 
         let winner = true
         for (let i = 0; i < localItems.length; i++) {

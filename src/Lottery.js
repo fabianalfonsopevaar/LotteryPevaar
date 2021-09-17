@@ -12,7 +12,7 @@ import data from './imagesData'
 //https://padondenosvamos.com/lugares-turisticos-de-colombia/
 //https://viajerocasual.com/comidas-tipicas-de-colombia/
 
-export default function Lottery() {
+export default function Lottery(props) {
 
     let initialState = data
     const [items, setItems] = useState([...initialState])
@@ -69,12 +69,12 @@ export default function Lottery() {
                         })}
                     </Grid>
                 </Grid>
-                <Grid item xs={2}>
+                {props.auth && (<Grid item xs={2}>
                     <TextField id="name" label="Name" value={name}  onChange={(e) => setName(e.target.value ?e.target.value  : "")} />
                     <Button onClick={() => drawCard()} >Draw a card</Button>
                     <Button onClick={() => resetGame()} >Reset game</Button>
                     <Button onClick={() => shuffleItems()} >Shuffle cards</Button>
-                </Grid>
+                </Grid>)}
                 <Grid item xs>
                     <Grid container>
                         {itemsSelected.map(i => {
